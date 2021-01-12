@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-search-manga',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchMangaComponent implements OnInit {
 
-  constructor() { }
+  query: string;
+  obsTrack: Observable<Object>;
+  results: any;
+
+  constructor(public api: ApiService) {
+  }
 
   ngOnInit(): void {
+  }
+
+  submit(query: HTMLInputElement): void {
+
+    if (!query.value) {
+      return;
+    }
+    this.query = query.value;
+    this.obsTrack = this.api.searchManga(this.query);
+    this.obsTrack.subscribe((data) => { this.results = data; console.log(this.results) });
   }
 
 }

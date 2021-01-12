@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SearchMangaComponent } from './search-manga.component';
 
 describe('SearchMangaComponent', () => {

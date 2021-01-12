@@ -18,6 +18,8 @@ describe('SearchMangaComponent', () => {
     fixture.detectChanges();
   });
 
+
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
